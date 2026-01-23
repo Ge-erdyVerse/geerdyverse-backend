@@ -3,6 +3,7 @@ import cors from "cors";
 
 import submissionsRoutes from "./routes/submissionsRoutes.js";
 import videoSubmissionRoutes from "./routes/videoSubmissionRoutes.js";
+import designRequestRoutes from "./routes/designRoutes.js";  // <-- NEW
 
 const app = express();
 app.use(cors());
@@ -15,7 +16,10 @@ app.get("/", (req, res) => {
 // Existing route for 3D submissions
 app.use("/api/submissions", submissionsRoutes);
 
-// New route for video submissions
+// Existing route for video submissions
 app.use("/api/video-submissions", videoSubmissionRoutes);
+
+// NEW: route for graphic design submissions
+app.use("/api/design-requests", designRequestRoutes);
 
 export default app;
