@@ -3,7 +3,8 @@ import cors from "cors";
 
 import submissionsRoutes from "./routes/submissionsRoutes.js";
 import videoSubmissionRoutes from "./routes/videoSubmissionRoutes.js";
-import designRequestRoutes from "./routes/designRoutes.js";  // <-- NEW
+import designRequestRoutes from "./routes/designRoutes.js";
+import photographySubmissionRoutes from "./routes/photographySubmissionRoutes.js"; // NEW
 
 const app = express();
 app.use(cors());
@@ -13,13 +14,16 @@ app.get("/", (req, res) => {
   res.send("Geerdyverse Backend Running");
 });
 
-// Existing route for 3D submissions
+// 3D Modelling Submissions
 app.use("/api/submissions", submissionsRoutes);
 
-// Existing route for video submissions
+// Video Editing Submissions
 app.use("/api/video-submissions", videoSubmissionRoutes);
 
-// NEW: route for graphic design submissions
+// Graphic Design Requests
 app.use("/api/design-requests", designRequestRoutes);
+
+// Photography Requests (NEW)
+app.use("/api/photo-submissions", photographySubmissionRoutes);
 
 export default app;
